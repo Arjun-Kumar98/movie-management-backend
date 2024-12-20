@@ -4,10 +4,10 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import com.cinematheater.model.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
-@Table(name="movie_list")
+@Table(name="movie_list",
+indexes = @Index(name="idx_movie",columnList = "movie_id"))
 public class MovieEntity {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)

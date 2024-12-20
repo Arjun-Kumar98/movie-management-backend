@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import com.cinematheater.controller.MovieController;
 import com.cinematheater.controller.UserController;
-
+import com.cinematheater.exception.*;
 import java.io.IOException;
 import java.util.*;
 import javax.persistence.EntityNotFoundException;

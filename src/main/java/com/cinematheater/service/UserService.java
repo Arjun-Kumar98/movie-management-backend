@@ -9,6 +9,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import com.cinematheater.dto.*;
 import org.slf4j.LoggerFactory;
+import com.cinematheater.exception.*;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

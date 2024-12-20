@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.*;
 import com.cinematheater.model.*;
 import com.cinematheater.service.*;
+import com.cinematheater.exception.*;
 import com.cinematheater.dto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,7 @@ public class UserController {
 	private PasswordService passwordService;
 
   @Validated
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin(origins = "https://dev.d3ek0r64l9ywsc.amplifyapp.com")
 	@PostMapping("/registerUser")
 
 	public ResponseEntity<String> registerUser(@RequestBody UserEntity userDetails){
@@ -35,7 +36,7 @@ public class UserController {
 		return ResponseEntity.ok(responsemsg);
 	}
   
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin(origins = "https://dev.d3ek0r64l9ywsc.amplifyapp.com")
   @GetMapping("/loginUser")
   public ResponseEntity<LoginResponseDTO> userLogin(@RequestParam("emailid") @NotBlank(message = "email id cannot be blank") String username,
 			@RequestParam("password") @NotBlank(message="password cannot be blank") String password){

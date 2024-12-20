@@ -6,6 +6,7 @@ import org.springframework.data.domain.*;
 import com.cinematheater.model.*;
 import com.cinematheater.service.*;
 import com.cinematheater.dto.*;
+import com.cinematheater.exception.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,7 @@ public class MovieController {
 	@Autowired
 	MovieService movieService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://dev.d3ek0r64l9ywsc.amplifyapp.com")
 @PostMapping("/registerMovie")
 public ResponseEntity<String> registerMovieDetails( @RequestParam("title") String title,
         @RequestParam(value ="year",required=true) Integer year,
@@ -36,7 +37,7 @@ String msg =  movieService.saveMovieDetails(movie);
 return ResponseEntity.ok(msg);
 }
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://dev.d3ek0r64l9ywsc.amplifyapp.com")
 @PutMapping("/updateMovie")
 public ResponseEntity<String> updateMovieDetails(@RequestParam(value = "movieId",required = true) Integer movieId,
 		@RequestParam(value = "year",required = true) Integer year, @RequestParam(required=false) MultipartFile image,@RequestParam(value = "title",required = true) String title){
@@ -49,13 +50,13 @@ public ResponseEntity<String> updateMovieDetails(@RequestParam(value = "movieId"
 	return ResponseEntity.ok(msg);
 }
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://dev.d3ek0r64l9ywsc.amplifyapp.com")
 @GetMapping("/getMovieList")
 public ResponseEntity<Page<MovieResponseDTO>> getMovieList(@RequestParam(value ="userId",required = true) Integer userId, @RequestParam(value ="page",required = true) Integer page, @RequestParam(value = "size",required = true) Integer size){
 	Page<MovieResponseDTO> moviePage = movieService.getMovieList(userId, page, size);
 	return ResponseEntity.ok(moviePage);
 }
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://dev.d3ek0r64l9ywsc.amplifyapp.com")
 @GetMapping("/getMovie")
 public ResponseEntity<MovieResponseDTO> getMovie(@RequestParam(value = "movieId",required = true) Integer movieId){
 	MovieResponseDTO movie = movieService.getMovieDetails(movieId);

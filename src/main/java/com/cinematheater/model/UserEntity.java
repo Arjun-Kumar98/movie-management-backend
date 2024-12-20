@@ -3,8 +3,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name="user_list",
 uniqueConstraints = @UniqueConstraint(columnNames=("email_id")))

@@ -28,7 +28,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         // Skip filtering for requests to /user/**
     	logger.info("Request Headers: {}", Collections.list(request.getHeaderNames()));
 
-        if (request.getRequestURI().startsWith("/movie")||request.getRequestURI().startsWith("/user")) {
+        if (request.getRequestURI().startsWith("/user")) {
             filterChain.doFilter(request, response);  // Continue with the filter chain without checking the token
             return;
         }
